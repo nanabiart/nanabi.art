@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hi! Nanabi.art</title>
+  <title>Landing Page Mobile</title>
   <style>
     * {
       margin: 0;
@@ -17,14 +17,13 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
     }
 
     .section {
       width: 100%;
-      max-width: 628px;
-      position: relative; /* para posicionar ícones sobre a imagem */
-      margin-bottom: 30px;
+      max-width: 628px; /* largura das imagens mobile */
+      position: relative; /* permite CTAs sobre a imagem */
+      margin-bottom: 20px;
     }
 
     img, .gif {
@@ -33,21 +32,24 @@
       display: block;
     }
 
-    /* CTAs sobre as imagens */
     .cta-icon {
       position: absolute;
-      width: 40px; /* ajuste conforme precisar */
+      width: 40px; /* tamanho do ícone, ajuste se quiser */
       height: 40px;
       cursor: pointer;
     }
 
-    /* Posicionamento inicial, você ajusta depois */
-    .cta1 { top: 20px; left: 20px; }    /* ícone Behance */
-    .cta2 { top: 20px; right: 20px; }   /* ícone email */
-    .cta3 { bottom: 20px; left: 20px; } /* ícone Behance */
-    .cta4 { bottom: 20px; right: 20px; }/* ícone LinkedIn */
-    .cta5 { bottom: 50%; left: 50%; transform: translate(-50%, 50%); } /* ícone email central */
-    
+    /* Posições aproximadas dos CTAs conforme layout antigo */
+    /* Seção 1 */
+    .s1_cta1 { top: 20px; left: 20px; }   /* Behance */
+    .s1_cta2 { top: 20px; right: 20px; }  /* Email */
+
+    /* Seção 2 */
+    .s2_cta1 { bottom: 10px; left: 20px; }  /* Behance */
+    .s2_cta2 { bottom: 10px; right: 20px; } /* LinkedIn */
+
+    /* Seção 3 */
+    .s3_cta1 { top: 50%; left: 50%; transform: translate(-50%, -50%); } /* Email central */
   </style>
 </head>
 <body>
@@ -55,8 +57,32 @@
   <!-- Seção 1 -->
   <div class="section">
     <img src="versao_mobile_01.jpg" alt="Versão Mobile 01">
-    <!-- Ícones sobre a imagem -->
     <a href="https://www.behance.net/nanabiart" target="_blank">
-      <img src="icone_behance.png" class="cta-icon cta1" alt="Behance">
+      <img src="icone_behance.png" class="cta-icon s1_cta1" alt="Behance">
     </a>
-    <a href="mailto:nan
+    <a href="mailto:nanabiart@gmail.com">
+      <img src="icone_email.png" class="cta-icon s1_cta2" alt="Email">
+    </a>
+  </div>
+
+  <!-- Seção 2 -->
+  <div class="section">
+    <img class="gif" src="cartucho_02.gif" alt="Cartucho 02">
+    <a href="https://www.behance.net/nanabiart" target="_blank">
+      <img src="icone_behance.png" class="cta-icon s2_cta1" alt="Behance">
+    </a>
+    <a href="https://www.linkedin.com/in/nanabi/" target="_blank">
+      <img src="icone_linkedin.png" class="cta-icon s2_cta2" alt="LinkedIn">
+    </a>
+  </div>
+
+  <!-- Seção 3 -->
+  <div class="section">
+    <img src="versao_mobile_03.jpg" alt="Versão Mobile 03">
+    <a href="mailto:nanabiart@gmail.com">
+      <img src="icone_email.png" class="cta-icon s3_cta1" alt="Email">
+    </a>
+  </div>
+
+</body>
+</html>
