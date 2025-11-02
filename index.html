@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Landing Page Mobile</title>
+<title>Hi! Nanabi.art 1</title>
 <style>
   * {
     margin: 0;
@@ -13,7 +13,6 @@
 
   body {
     font-family: Arial, sans-serif;
-    background-color: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,8 +20,8 @@
 
   .section {
     width: 100%;
-    max-width: 628px; /* largura mobile */
-    position: relative; /* permite CTAs sobre a imagem */
+    max-width: 628px;
+    position: relative;
     margin-bottom: 20px;
   }
 
@@ -32,23 +31,26 @@
     display: block;
   }
 
-  /* CTAs invisíveis */
+  /* CTAs invisíveis mas clicáveis */
   .cta {
     position: absolute;
-    width: 40px;  /* ajustável */
-    height: 40px; /* ajustável */
+    display: block;
+    width: 140px;  /* largura do botão “Meus Projetos” aproximada */
+    height: 50px;  /* altura do botão */
     cursor: pointer;
-    background: transparent; /* invisível */
+    background: transparent;
+    opacity: 0;
+    z-index: 10;
   }
 
   /* Posições iniciais dos CTAs */
-  /* Seção 1 */
-  .s1_cta1 { bottom: 20px; left: 50%; transform: translateX(-50%); } /* Behance no final da fatia */
+  /* Seção 1: CTA Behance sobre "Meus Projetos" */
+  .s1_cta1 { bottom: 40px; left: 50%; transform: translateX(-50%); }
 
   /* Seção 3 */
-  .s3_cta1 { top: 50px; left: 20px; }  /* Behance lado esquerdo */
-  .s3_cta2 { top: 50px; left: 80px; }  /* LinkedIn lado esquerdo */
-  .s3_cta3 { top: 50px; right: 20px; } /* Email lado direito */
+  .s3_cta1 { top: 50px; left: 20px; }    /* Behance */
+  .s3_cta2 { top: 50px; left: 90px; }    /* LinkedIn */
+  .s3_cta3 { top: 50px; right: 20px; }   /* Email */
 
 </style>
 </head>
@@ -63,7 +65,6 @@
   <!-- Seção 2 -->
   <div class="section">
     <img class="gif" src="cartucho_02.gif" alt="Cartucho 02">
-    <!-- Nenhum CTA nesta seção -->
   </div>
 
   <!-- Seção 3 -->
@@ -76,4 +77,3 @@
 
 </body>
 </html>
-
