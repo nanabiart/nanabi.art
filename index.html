@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hi! Nanabi.art2</title>
+<title>Landing Page Mobiletest</title>
 <style>
   * {
     margin: 0;
@@ -35,8 +35,6 @@
 .cta {
   position: absolute;
   display: block;
-  width: 140px;  /* largura do botão “Meus Projetos” aproximada */
-  height: 50px;  /* altura do botão */
   cursor: pointer;
   background: transparent;
   opacity: 0;
@@ -48,6 +46,8 @@
   bottom: 40px; 
   left: 50%; 
   transform: translateX(-50%); 
+  width: 180px;  /* maior para “Meus Projetos” */
+  height: 60px;
 }
 
 /* Seção 3 */
@@ -55,19 +55,32 @@
 .s3_cta1 { 
   top: 50px; 
   left: 20px; 
+  width: 120px;  /* personalizado */
+  height: 50px;
 }
 
 /* LinkedIn – menor e deslocado */
 .s3_cta2 { 
   top: 50px; 
-  left: 85px;   /* ajustado para não sobrepor o Behance */
-  width: 100px; /* largura menor */
+  left: 85px; 
+  width: 90px;   /* menor largura */
+  height: 45px;
 }
 
-/* Email (CTA "Vamos criar juntos?") */
+/* Email inferior (CTA "Vamos criar juntos?") */
 .s3_cta3 { 
   top: 50px; 
   right: 20px; 
+  width: 130px;  
+  height: 50px;
+}
+
+/* Email superior – novo CTA 50px abaixo do topo */
+.s3_cta4 { 
+  top: 50px;  /* ajustar se necessário */
+  right: 20px; 
+  width: 140px;
+  height: 50px;
 }
 
 </style>
@@ -90,7 +103,8 @@
     <img src="versao_mobile_03.jpg" alt="Versão Mobile 03">
     <a href="https://www.behance.net/nanabiart" target="_blank" class="cta s3_cta1"></a>
     <a href="https://www.linkedin.com/in/nanabi/" target="_blank" class="cta s3_cta2"></a>
-    <a href="mailto:nanabiart@gmail.com" class="cta s3_cta3"></a>
+    <a href="mailto:nanabiart@gmail.com" class="cta s3_cta3"></a> <!-- email inferior -->
+    <a href="mailto:nanabiart@gmail.com" class="cta s3_cta4"></a> <!-- email superior 50px da borda -->
   </div>
 
 </body>
