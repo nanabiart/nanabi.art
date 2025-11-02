@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hi! Nanabi.art</title>
+<title>Hi! Nanabi.art2</title>
 <style>
   * {
     margin: 0;
@@ -31,26 +31,44 @@
     display: block;
   }
 
-  /* CTAs invisíveis mas clicáveis */
-  .cta {
-    position: absolute;
-    display: block;
-    width: 140px;  /* largura do botão “Meus Projetos” aproximada */
-    height: 50px;  /* altura do botão */
-    cursor: pointer;
-    background: transparent;
-    opacity: 0;
-    z-index: 10;
-  }
+/* CTAs invisíveis mas clicáveis */
+.cta {
+  position: absolute;
+  display: block;
+  width: 140px;  /* largura do botão “Meus Projetos” aproximada */
+  height: 50px;  /* altura do botão */
+  cursor: pointer;
+  background: transparent;
+  opacity: 0;
+  z-index: 10;
+}
 
-  /* Posições iniciais dos CTAs */
-  /* Seção 1: CTA Behance sobre "Meus Projetos" */
-  .s1_cta1 { bottom: 40px; left: 50%; transform: translateX(-50%); }
+/* Seção 1: CTA Behance sobre "Meus Projetos" */
+.s1_cta1 { 
+  bottom: 40px; 
+  left: 50%; 
+  transform: translateX(-50%); 
+}
 
-  /* Seção 3 */
-  .s3_cta1 { top: 50px; left: 20px; }    /* Behance */
-  .s3_cta2 { top: 50px; left: 90px; }    /* LinkedIn */
-  .s3_cta3 { top: 50px; right: 20px; }   /* Email */
+/* Seção 3 */
+/* Behance */
+.s3_cta1 { 
+  top: 50px; 
+  left: 20px; 
+}
+
+/* LinkedIn – menor e deslocado */
+.s3_cta2 { 
+  top: 50px; 
+  left: 85px;   /* ajustado para não sobrepor o Behance */
+  width: 100px; /* largura menor */
+}
+
+/* Email (CTA "Vamos criar juntos?") */
+.s3_cta3 { 
+  top: 50px; 
+  right: 20px; 
+}
 
 </style>
 </head>
