@@ -23,7 +23,7 @@
     .section {
       width: 100%;
       max-width: 628px;
-      position: relative; /* permite posicionar CTAs sobre a imagem */
+      position: relative; /* para posicionar ícones sobre a imagem */
       margin-bottom: 30px;
     }
 
@@ -33,32 +33,21 @@
       display: block;
     }
 
-    /* CTAs sobre a imagem */
-    .cta {
+    /* CTAs sobre as imagens */
+    .cta-icon {
       position: absolute;
-      bottom: 20px; /* ajuste vertical */
-      left: 50%;
-      transform: translateX(-50%);
-      text-align: center;
+      width: 40px; /* ajuste conforme precisar */
+      height: 40px;
+      cursor: pointer;
     }
 
-    .cta a {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: rgba(0,0,0,0.8);
-      color: #fff;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      margin: 5px;
-    }
-
-    @media (min-width: 769px) {
-      /* Futuro desktop */
-      .section {
-        max-width: 1200px;
-      }
-    }
+    /* Posicionamento inicial, você ajusta depois */
+    .cta1 { top: 20px; left: 20px; }    /* ícone Behance */
+    .cta2 { top: 20px; right: 20px; }   /* ícone email */
+    .cta3 { bottom: 20px; left: 20px; } /* ícone Behance */
+    .cta4 { bottom: 20px; right: 20px; }/* ícone LinkedIn */
+    .cta5 { bottom: 50%; left: 50%; transform: translate(-50%, 50%); } /* ícone email central */
+    
   </style>
 </head>
 <body>
@@ -66,27 +55,8 @@
   <!-- Seção 1 -->
   <div class="section">
     <img src="versao_mobile_01.jpg" alt="Versão Mobile 01">
-    <div class="cta">
-      <a href="https://www.behance.net/nanabiart" target="_blank">Ver no Behance</a>
-      <a href="mailto:nanabiart@gmail.com">Entre em contato</a>
-    </div>
-  </div>
-
-  <!-- Seção 2 -->
-  <div class="section">
-    <img class="gif" src="cartucho_02.gif" alt="Cartucho 02">
-    <div class="cta">
-      <a href="https://www.behance.net/nanabiart" target="_blank">Ver no Behance</a>
-    </div>
-  </div>
-
-  <!-- Seção 3 -->
-  <div class="section">
-    <img src="versao_mobile_03.jpg" alt="Versão Mobile 03">
-    <div class="cta">
-      <a href="mailto:nanabiart@gmail.com">Entre em contato</a>
-    </div>
-  </div>
-
-</body>
-</html>
+    <!-- Ícones sobre a imagem -->
+    <a href="https://www.behance.net/nanabiart" target="_blank">
+      <img src="icone_behance.png" class="cta-icon cta1" alt="Behance">
+    </a>
+    <a href="mailto:nan
