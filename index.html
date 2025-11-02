@@ -1,12 +1,132 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!doctype html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nanabi.art</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>nanabi.art — Portfolio</title>
+<style>
+  :root{
+    --bg:#ffffff;
+    --overlay: rgba(0,0,0,0);
+  }
+  html,body{margin:0;height:100%;background:var(--bg);font-family:Inter,system-ui,Arial,sans-serif;color:#111}
+  .frame{max-width:390px;margin:0 auto;position:relative;}
+  .slice{display:block;width:100%;height:auto;position:relative;}
+  /* clickable overlays */
+  .overlay{position:absolute;border:0;display:block;background:var(--overlay);cursor:pointer;}
+  /* debug outline — remove or set border:0 after finalizing */
+  .overlay.debug{outline:2px dashed rgba(0,120,255,0.6);}
+  /* small helper for editing positions on desktop */
+  .editor{position:fixed;right:12px;top:12px;background:#fff;border:1px solid #eee;padding:10px;border-radius:8px;box-shadow:0 6px 22px rgba(0,0,0,0.08);font-size:13px;max-width:320px;z-index:9999;}
+  .editor label{display:block;margin:6px 0 2px;font-weight:600}
+  .editor input{width:100%;padding:6px;font-size:13px;margin-bottom:6px}
+  .note{font-size:12px;color:#666;margin-top:6px}
+  @media (min-width:420px){
+    .frame{transform:scale(1.1);transform-origin:top center}
+  }
+</style>
 </head>
 <body>
-    <h1>Bem-vindo ao meu site!</h1>
-    <p>Em breve, mais novidades.</p>
-</body>https://open.spotify.com/playlist/1hQNzn1QYQK2DvzVRvBsbA?si=dd61093f405c4919</body>
+<main style="display:flex;justify-content:center;padding:20px 0;">
+  <div class="frame" id="frame">
+    <img src="01_cartucho.png" class="slice" id="slice1" alt="slice 1">
+    <img src="02_cartucho.png" class="slice" id="slice2" alt="slice 2">
+    <img src="03_cartucho_gif.gif" class="slice" id="slice3" alt="slice 3">
+    <img src="04_ultimo_cartucho.png" class="slice" id="slice4" alt="slice 4">
+    <!-- Overlays: positions are percentages relative to image width/height of the corresponding slice -->
+    <!-- CTA 1 (example placed on slice2 area; adjust using editor below) -->
+    <a id="cta1" class="overlay debug" href="https://www.behance.net/nanabiart" target="_blank" aria-label="CTA Behance"></a>
+    <!-- CTA 2 -->
+    <a id="cta2" class="overlay debug" href="mailto:nanabiart@gmail.com" aria-label="CTA Email"></a>
+    <!-- Icon Behance -->
+    <a id="icon1" class="overlay debug" href="https://www.behance.net/nanabiart" target="_blank" aria-label="Icon Behance"></a>
+    <!-- Icon LinkedIn -->
+    <a id="icon2" class="overlay debug" href="https://www.linkedin.com/in/nanabi/" target="_blank" aria-label="Icon LinkedIn"></a>
+    <!-- Icon Email -->
+    <a id="icon3" class="overlay debug" href="mailto:nanabiart@gmail.com" aria-label="Icon Email"></a>
+  </div>
+</main>
+
+<!-- Simple editor to tweak overlay positions in percentages -->
+<div class="editor" id="editor" aria-hidden="false">
+  <strong>Editor rápido de cliques (ajuste em %)</strong>
+  <div class="note">Selecione o alvo e ajuste top/left/width/height como porcentagem da largura do slice correspondente. Clique "Salvar" para aplicar.</div>
+  <label for="target">Alvo</label>
+  <select id="target">
+    <option value="cta1">CTA 1 (Behance)</option>
+    <option value="cta2">CTA 2 (Email)</option>
+    <option value="icon1">Ícone Behance</option>
+    <option value="icon2">Ícone LinkedIn</option>
+    <option value="icon3">Ícone Email</option>
+  </select>
+  <label for="slice">Slice (1-4)</label>
+  <input id="slice" type="number" min="1" max="4" value="2">
+  <label for="top">Top (%)</label>
+  <input id="top" type="number" min="0" max="200" value="60">
+  <label for="left">Left (%)</label>
+  <input id="left" type="number" min="0" max="200" value="10">
+  <label for="width">Width (%)</label>
+  <input id="width" type="number" min="0" max="200" value="80">
+  <label for="height">Height (%)</label>
+  <input id="height" type="number" min="0" max="200" value="10">
+  <button id="save" style="width:100%;padding:8px;background:#0b66ff;color:#fff;border:0;border-radius:6px;cursor:pointer">Salvar</button>
+  <button id="hide" style="width:100%;padding:8px;margin-top:6px;background:#eee;border:0;border-radius:6px;cursor:pointer">Ocultar editor</button>
+  <div class="note" style="margin-top:8px">Para remover as bordas azuis (debug), apague a classe <code>debug</code> das tags <code>.overlay</code> no código final.</div>
+</div>
+
+<script>
+const frame = document.getElementById('frame');
+const editor = document.getElementById('editor');
+const saveBtn = document.getElementById('save');
+const hideBtn = document.getElementById('hide');
+
+function setOverlay(elId, sliceIndex, top, left, width, height){
+  const img = document.getElementById('slice'+sliceIndex);
+  const overlay = document.getElementById(elId);
+  if(!img || !overlay) return;
+  // compute based on image size
+  const rect = img.getBoundingClientRect();
+  // use percentages relative to image width
+  overlay.style.position='absolute';
+  overlay.style.top = (img.offsetTop + (top/100)*img.offsetHeight) + 'px';
+  overlay.style.left = (left/100)*img.offsetWidth + 'px';
+  overlay.style.width = (width/100)*img.offsetWidth + 'px';
+  overlay.style.height = (height/100)*img.offsetHeight + 'px';
+  // ensure overlay sits above images
+  overlay.style.zIndex = 10;
+}
+
+// apply default positions (you can change them with editor)
+setOverlay('cta1',2,62,8,84,12);
+setOverlay('cta2',4,78,8,84,10);
+setOverlay('icon1',4,88,8,12,8);
+setOverlay('icon2',4,88,26,12,8);
+setOverlay('icon3',4,88,44,12,8);
+
+// editor interactions
+saveBtn.addEventListener('click',()=>{
+  const target = document.getElementById('target').value;
+  const sliceIndex = parseInt(document.getElementById('slice').value,10);
+  const top = parseFloat(document.getElementById('top').value);
+  const left = parseFloat(document.getElementById('left').value);
+  const width = parseFloat(document.getElementById('width').value);
+  const height = parseFloat(document.getElementById('height').value);
+  setOverlay(target,sliceIndex,top,left,width,height);
+});
+
+// hide editor
+hideBtn.addEventListener('click',()=>{editor.style.display='none';});
+
+// reposition overlays on resize
+window.addEventListener('resize',()=>{
+  // reapply current settings by reading positions from elements (approx)
+  // Reapply defaults for safety
+  setOverlay('cta1',2,62,8,84,12);
+  setOverlay('cta2',4,78,8,84,10);
+  setOverlay('icon1',4,88,8,12,8);
+  setOverlay('icon2',4,88,26,12,8);
+  setOverlay('icon3',4,88,44,12,8);
+});
+</script>
+</body>
 </html>
