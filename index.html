@@ -3,13 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hi, nanabi.art!</title>
+<title>Landing Page Mobile</title>
 <style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
   body {
     font-family: Arial, sans-serif;
     display: flex;
-    justify-content: center;
-    padding: 20px;
+    flex-direction: column;
+    align-items: center;
   }
 
   .section {
@@ -17,46 +23,91 @@
     max-width: 628px;
     position: relative;
     margin-bottom: 20px;
-    border: 1px solid #ccc;
   }
 
-  img {
+  img, .gif {
     width: 100%;
     height: auto;
     display: block;
   }
 
-  /* CTAs com cores para visualização */
-  .cta-visual {
+  /* CTAs invisíveis mas clicáveis */
+  .cta {
     position: absolute;
-    border: 2px dashed red;
-    background: rgba(255,0,0,0.2);
-    text-align: center;
-    font-size: 12px;
-    font-weight: bold;
-    color: #fff;
-    line-height: 1.5;
-    z-index: 20;
+    display: block;
+    cursor: pointer;
+    background: transparent;
+    opacity: 0;
+    z-index: 10;
   }
 
-  /* Posicionamento aproximado dos CTAs na imagem 3 */
-  .s3_cta1 { top: 12%; left: 5%; width: 20%; height: 6%; } /* Behance */
-  .s3_cta2 { top: 12%; left: 30%; width: 12%; height: 5%; } /* LinkedIn */
-  .s3_cta3 { bottom: 5%; right: 5%; width: 25%; height: 6%; } /* Email inferior */
-  .s3_cta4 { top: 8%; right: 5%; width: 25%; height: 6%; } /* Email superior */
+  /* Seção 1: CTA Behance sobre "Meus Projetos" */
+  .s1_cta1 {
+    bottom: 5%; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 28%;  
+    height: 6%;
+  }
+
+  /* Seção 3 - CTAs personalizados e responsivos */
+  /* Behance */
+  .s3_cta1 {
+    top: 12%; 
+    left: 5%;
+    width: 20%;  
+    height: 6%;
+  }
+
+  /* LinkedIn */
+  .s3_cta2 {
+    top: 12%;
+    left: 30%;
+    width: 12%;
+    height: 5%;
+  }
+
+  /* Email inferior ("Vamos criar algo juntos?") */
+  .s3_cta3 {
+    bottom: 5%;
+    right: 5%;
+    width: 25%;
+    height: 6%;
+  }
+
+  /* Email superior (novo CTA) */
+  .s3_cta4 {
+    top: 8%;  
+    right: 5%;
+    width: 25%;
+    height: 6%;
+  }
+
 </style>
 </head>
 <body>
 
-<div class="section">
-  <img src="versao_mobile_03.jpg" alt="Versão Mobile 03">
+  <!-- Seção 1 -->
+  <div class="section">
+    <img src="versao_mobile_01.jpg" alt="Versão Mobile 01">
+    <a href="https://www.behance.net/nanabiart" target="_blank" class="cta s1_cta1"></a>
+  </div>
 
-  <div class="cta-visual s3_cta1">Behance</div>
-  <div class="cta-visual s3_cta2">LinkedIn</div>
-  <div class="cta-visual s3_cta3">Email Inferior</div>
-  <div class="cta-visual s3_cta4">Email Superior</div>
-</div>
+  <!-- Seção 2 -->
+  <div class="section">
+    <img class="gif" src="cartucho_02.gif" alt="Cartucho 02">
+  </div>
+
+  <!-- Seção 3 -->
+  <div class="section">
+    <img src="versao_mobile_03.jpg" alt="Versão Mobile 03">
+    <a href="https://www.behance.net/nanabiart" target="_blank" class="cta s3_cta1"></a>
+    <a href="https://www.linkedin.com/in/nanabi/" target="_blank" class="cta s3_cta2"></a>
+    <a href="mailto:nanabiart@gmail.com" class="cta s3_cta3"></a> <!-- Email inferior -->
+    <a href="mailto:nanabiart@gmail.com" class="cta s3_cta4"></a> <!-- Email superior -->
+  </div>
 
 </body>
 </html>
+
 
